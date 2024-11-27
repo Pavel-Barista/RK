@@ -1,15 +1,12 @@
-#Функция линейного поиска №4
-def sentinel_linear_search (array, searched_element):
-    last = array[(len(array)-1)]
-    array[(len(array)-1)] = searched_element
-    i=0
-    while array[i] != searched_element:
-        i += 1
-    array[(len(array)-1)] = last
-    if i < (len(array)-1) or array[(len(array)-1)] == searched_element:
-        print ("Число в списке под номером", i+1)
+#Функция линейного поиска №5
+def recursive_linear_search (array, i, searched_element):
+    if i > len (array)-1:
+        return None
     else:
-        print("Введенное число отсутствует в списке")
+        if array[i] == searched_element:
+            return i
+        else:
+            return recursive_linear_search (array, i+1, searched_element)
 
 #Вызываем модуль генератора случайных чисел
 from random import randint
@@ -31,4 +28,10 @@ print (array_1)
 k = int(input ("Введите положительное число:    "))
 
 #Вызываем функцию
-sentinel_linear_search(array_1, k)
+a = recursive_linear_search(array_1, 0, k)
+print(a)
+
+if a != None:
+    print ("Число в списке под номером:", a+1)
+else:
+    print("Введенное число отсутствует в списке")
