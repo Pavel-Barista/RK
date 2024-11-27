@@ -1,12 +1,17 @@
-#Функция линейного поиска №5
-def recursive_linear_search (array, i, searched_element):
-    if i > len (array)-1:
-        return None
-    else:
-        if array[i] == searched_element:
-            return i
+#Функция бинарного поиска №1
+def binary_search (array, searched_element):
+    left = 0
+    right = len(array)-1
+    while left <= right:
+        middle = (left + right) // 2
+        if searched_element == array[middle]:
+            return middle
         else:
-            return recursive_linear_search (array, i+1, searched_element)
+            if searched_element > array[middle]:
+                left = middle + 1
+            else:
+                right = middle - 1
+    return None
 
 #Вызываем модуль генератора случайных чисел
 from random import randint
@@ -28,7 +33,7 @@ print (array_1)
 k = int(input ("Введите положительное число:    "))
 
 #Вызываем функцию
-a = recursive_linear_search(array_1, 0, k)
+a = binary_search(array_1, k)
 print(a)
 
 if a != None:
