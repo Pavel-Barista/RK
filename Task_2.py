@@ -1,4 +1,4 @@
-#Функция линейного поиска №2
+#Функция линейного поиска №3
 def better_linear_search (array, searched_element):
     for i in range (len(array)):
         if searched_element == array[i]:
